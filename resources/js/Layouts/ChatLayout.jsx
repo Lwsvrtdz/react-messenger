@@ -16,9 +16,6 @@ const ChatLayout = ({ children }) => {
 
     const isUserOnline = (userId) => onlineUsers[userId];
 
-    // console.log("conversations", conversations);
-    // console.log("selectedConversation", selectedConversation);
-
     const onSearch = (e) => {
         const search = e.target.value.toLowerCase();
         setLocalConversations(
@@ -101,7 +98,7 @@ const ChatLayout = ({ children }) => {
                 <div
                     className={`transition-all w-full sm:w-[220px] md:w-[300px] bg-slate-800
                     flex flex-col overflow-hidden ${
-                        selectedConversation ? "-ml-[100%] sm:ml-0" : ""
+                        selectedConversation ? " sm:ml-0" : ""
                     }`}
                 >
                     <div className="flex items-center justify-between py-2 px-3 text-xl
