@@ -5,7 +5,7 @@ import { formatMessageDateLong } from "@/helpers";
 
 export default function MessageItem({ message }) {
     const currentUser = usePage().props.auth.user;
-    console.log(currentUser)
+
     return (
         <div className={
                 "chat " +

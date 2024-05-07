@@ -5,15 +5,26 @@ import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid';
 import ConversationHeader from '@/Components/App/ConversationHeader';
 import MessageItem from '@/Components/App/MessageItem';
 import MessageInput from '@/Components/App/MessageInput';
+import { useEventBus } from '@/EventBus';
 
 function Home({ selectedConversation, messages }) {
     const [localMessages, setLocalMessages] = useState([]);
     const messagesCtrRef = useRef(null);
+    const { on } = useEventBus();
+
+    const messageCreated = (message) => {
+    };
 
     useEffect(() => {
         setTimeout(() => {
             messagesCtrRef.current.scrollTop = messagesCtrRef.current.scrollHeight;
         }, 10);
+
+        const offCreated = on('message.created', messageCreated);
+
+        return () => {
+            offCreated();
+        }
     }, [selectedConversation]);
 
     useEffect(() => {
